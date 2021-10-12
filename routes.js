@@ -3,7 +3,7 @@ const userModel = require("./models/user");
 const convoModel = require("./models/convo");
 const app = express();
 
-app.get("/test", async() => {
+app.get("/test", async(request, response) => {
 
   try {
     response.send({status: "Ok"});
