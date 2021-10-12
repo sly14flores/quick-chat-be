@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const Router = require("./routes")
 const cors = require('cors');
 const app = express();
+const port = process.env.PORT || 4000
+const socket_port = process.env.SOCKET_PORT || 5000
 
 const { createServer } = require("http");
 const { Server } = require("socket.io");
@@ -32,7 +34,7 @@ io.on("connection", (socket) => {
   })
 });
 
-httpServer.listen(5000);
+httpServer.listen(socket_port);
 
 app.use(cors({
   origin: '*'
@@ -56,6 +58,6 @@ db.once("open", function () {
 
 app.use('/api', Router);
 
-app.listen(4000, () => {
+app.listen(port, () => {
   console.log("Server is running at port 4000");
 });
