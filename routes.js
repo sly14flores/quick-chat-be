@@ -3,6 +3,16 @@ const userModel = require("./models/user");
 const convoModel = require("./models/convo");
 const app = express();
 
+app.get("/test", async() => {
+
+  try {
+    response.send({status: "Ok"});
+  } catch (error) {
+    response.status(500).send(error);
+  }
+
+});
+
 app.post("/user", async (request, response) => {
 
   const checkUser = await userModel.findOneAndUpdate({name: request.body.name.trim()}, {online: true});
