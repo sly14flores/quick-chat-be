@@ -34,7 +34,7 @@ io.on("connection", (socket) => {
   })
 });
 
-httpServer.listen(socket_port);
+// httpServer.listen(socket_port);
 
 app.use(cors({
   origin: '*'
